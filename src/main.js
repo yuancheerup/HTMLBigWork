@@ -10,4 +10,3 @@ app.use(pinia) // 使用pinia
 app.use(router) // 使用路由
 
 app.mount('#app') // 挂载Vue应用
-// test1
