@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-  <router-view></router-view>
+  <h1>Topic</h1>
+  <p>This is the topic page</p>
+  <router-view />
 </template>
 
 <style scoped></style>

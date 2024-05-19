@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-  <router-view></router-view>
+  <h1>番茄时钟</h1>
+
+  <router-view />
 </template>
 
 <style scoped></style>
