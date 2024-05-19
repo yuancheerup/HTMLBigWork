@@ -23,13 +23,23 @@ const value = ref('')
     <slot></slot>
   </div>
 
-  <van-tabbar v-model="active">
-    <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
-    <van-tabbar-item name="search" icon="apps-o">应用</van-tabbar-item>
-    <van-tabbar-item name="friends" icon="browsing-history-o"
+  <van-tabbar v-model="active" route>
+    <van-tabbar-item name="home" icon="home-o" replace to="/home"
+      >首页</van-tabbar-item
+    >
+    <van-tabbar-item name="search" icon="apps-o" replace to="/apply"
+      >应用</van-tabbar-item
+    >
+    <van-tabbar-item
+      name="friends"
+      icon="browsing-history-o"
+      replace
+      to="/circle"
       >圈子</van-tabbar-item
     >
-    <van-tabbar-item name="setting" icon="contact-o">我的</van-tabbar-item>
+    <van-tabbar-item name="setting" icon="contact-o" replace to="/user"
+      >我的</van-tabbar-item
+    >
   </van-tabbar>
 </template>
 

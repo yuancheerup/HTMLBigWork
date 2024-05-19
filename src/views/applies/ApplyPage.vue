@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+import BasicLayout from '../layout/BasicLayout.vue'
+</script>
 
 <template>
-  <h1>应用页面</h1>
+  <BasicLayout>
+    <h2>应用页面</h2>
+  </BasicLayout>
 
   <router-view />
 </template>
