@@ -3,6 +3,7 @@ import HomePage from '@/views/home/HomePage.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
 import CirclePage from '@/views/circle/CirclePage.vue'
 import LoginPage from '@/views/login/LoginPage.vue'
+import RegisterPage from '@/views/login/RegisterPage.vue'
 import TopicPage from '@/views/topic/TopicPage.vue'
 import UserPage from '@/views/user/UserPage.vue'
 import ShopPage from '@/views/shop/ShopPage.vue'
@@ -40,6 +41,10 @@ const router = createRouter({
     {
       path: '/login',
       component: LoginPage
+    },
+    {
+      path: '/register',
+      component: RegisterPage
     },
     {
       path: '/apply',

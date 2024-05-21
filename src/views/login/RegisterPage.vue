@@ -2,41 +2,37 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores'
-import { showSuccessToast, showFailToast } from 'vant'
+import { showSuccessToast } from 'vant'
 
 const router = useRouter()
 const userStore = useUserStore()
 
-const isLogin = ref(true)
+const isLogin = ref(false)
 const username = ref('')
 const password = ref('')
+const rePassword = ref('')
 
 // 校验函数返回 true 表示校验通过，false 表示不通过
 const usernameValidator = (val) => /^[a-zA-Z][a-zA-Z0-9]{5,}$/.test(val)
 const passwordValidator = (val) =>
   /^[a-zA-Z0-9!@#$%^&*()_+\\[\]{};':"\\|,.<>/?`~\\-]{8,}$/.test(val)
+const rePasswordValidator = (val) => val === password.value
 
 const onSubmit = () => {
-  console.log(userStore.username, password.value === userStore.password)
-  if (
-    username.value === userStore.username &&
-    password.value === userStore.password
-  ) {
-    showSuccessToast('登录成功')
-    router.push('/')
-  } else {
-    showFailToast('用户名或密码错误')
-  }
+  userStore.setUser(username.value, password.value)
+  showSuccessToast('注册成功')
+  // 注册成功后跳转到登录页面
+  router.push('/login')
 }
 
-const onRegister = () => {
-  router.push('/register')
+const onLogin = () => {
+  router.push('/login')
 }
 </script>
 
 <template>
-  <!-- 登录 -->
-  <van-form @submit="onSubmit" v-show="isLogin">
+  <!-- 注册 -->
+  <van-form @submit="onSubmit" v-show="!isLogin">
     <van-cell-group inset>
       <!-- 用户名输入字段 -->
       <van-field
@@ -64,15 +60,27 @@ const onRegister = () => {
           }
         ]"
       />
+      <van-field
+        v-model="rePassword"
+        type="password"
+        name="rePassword"
+        placeholder="再次请输入密码"
+        :rules="[
+          {
+            validator: rePasswordValidator,
+            message: '两次输入的密码不一致'
+          }
+        ]"
+      />
     </van-cell-group>
     <div class="btn">
       <van-button round block type="primary" native-type="submit">
-        登录
+        注册
       </van-button>
     </div>
     <div class="btn">
-      <van-button round block type="primary" @click="onRegister">
-        注册
+      <van-button round block type="primary" @click="onLogin">
+        返回
       </van-button>
     </div>
   </van-form>
