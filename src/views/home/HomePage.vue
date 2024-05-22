@@ -28,6 +28,24 @@ const list = ref([
     imgSrc: 'https://example.com/image.jpg',
     title: '好看新闻',
     desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+  },
+  {
+    id: 4,
+    imgSrc: 'https://example.com/image.jpg',
+    title: '好看新闻',
+    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+  },
+  {
+    id: 5,
+    imgSrc: 'https://example.com/image.jpg',
+    title: '好看新闻',
+    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+  },
+  {
+    id: 6,
+    imgSrc: 'https://example.com/image.jpg',
+    title: '好看新闻',
+    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
   }
 ])
 </script>
@@ -56,30 +74,33 @@ const list = ref([
     </van-grid>
 
     <!-- 列表 -->
-    <div class="list" v-for="item in list" :key="item.id">
-      <van-row class="header" justify="center">
-        <van-col span="17">
-          <div class="title">{{ item.title }}</div>
-        </van-col>
-        <van-col span="6" class="more">
-          <div>更多 ></div>
-        </van-col>
-      </van-row>
-      <van-row class="content" justify="center">
-        <van-col span="17">
-          <div class="description">
-            {{ item.desc }}
-          </div>
-        </van-col>
-        <van-col span="6">
-          <van-image
-            width="100%"
-            height="auto"
-            :src="item.imgSrc"
-            fit="cover"
-          />
-        </van-col>
-      </van-row>
+    <div class="lists">
+      <div class="list" v-for="item in list" :key="item.id">
+        <van-row class="header" justify="center">
+          <van-col span="17">
+            <div class="title">{{ item.title }}</div>
+          </van-col>
+          <van-col span="6" class="more">
+            <div>更多 ></div>
+          </van-col>
+        </van-row>
+        <van-row class="content" justify="center">
+          <van-col span="17">
+            <div class="description">
+              {{ item.desc }}
+            </div>
+          </van-col>
+          <van-col span="6">
+            <van-image
+              width="100%"
+              height="auto"
+              :src="item.imgSrc"
+              fit="cover"
+            />
+          </van-col>
+        </van-row>
+      </div>
+      <div class="footer-word">没有更多内容了~</div>
     </div>
   </van-pull-refresh>
   <FooterLayout />
@@ -94,30 +115,39 @@ const list = ref([
   background-color: #39a9ed;
 }
 
-.list {
-  margin-top: 25px;
+.lists {
+  margin-bottom: 60px;
+  .list {
+    margin-top: 25px;
 
-  .title {
-    font-weight: bold;
-    font-size: 16px;
+    .title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .more {
+      text-align: right;
+    }
+
+    .more div {
+      font-size: 14px;
+      color: #999;
+    }
+
+    .content {
+      margin-top: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
-
-  .more {
-    text-align: right;
-  }
-
-  .more div {
+  .footer-word {
     font-size: 14px;
     color: #999;
-  }
-
-  .content {
-    margin-top: 10px;
-  }
-
-  .description {
-    font-size: 14px;
-    line-height: 1.5;
+    text-align: center;
+    margin-top: 20px;
   }
 }
 </style>

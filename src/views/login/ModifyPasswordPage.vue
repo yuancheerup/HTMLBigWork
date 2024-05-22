@@ -21,13 +21,13 @@ const passwordValidator = (val) =>
 const rePasswordValidator = (val) => val === password.value
 
 const onSubmit = () => {
-  if (userStore.username !== username.value) {
+  if (userStore.username === username.value) {
     userStore.setUser(username.value, password.value)
-    showSuccessToast('注册成功')
+    showSuccessToast('修改成功')
     // 注册成功后跳转到登录页面
     router.push('/login')
   } else {
-    showFailToast('用户名已经存在')
+    showFailToast('用户名不存在')
   }
 }
 
@@ -49,10 +49,10 @@ const toggleRePasswordVisibility = () => {
   <!-- 头部波浪 -->
   <WaveCanva />
 
-  <!-- 注册主体 -->
+  <!-- 修改密码主体 -->
   <div class="login-container">
     <div class="form-container">
-      <h2>注&nbsp;册</h2>
+      <h2>修改密码</h2>
       <div class="title-underline"></div>
       <van-form @submit="onSubmit">
         <van-cell-group inset>
@@ -128,11 +128,11 @@ const toggleRePasswordVisibility = () => {
             type="primary"
             native-type="submit"
           >
-            注册
+            确认修改
           </van-button>
         </div>
         <div class="register-link">
-          <span>已有账号？</span><a @click="onLogin">登录</a>
+          <span>不修改密码？</span><a @click="onLogin">返回</a>
         </div>
       </van-form>
     </div>
@@ -157,7 +157,7 @@ h2 {
 }
 
 .title-underline {
-  width: 60px;
+  width: 95px;
   height: 4px;
   background-color: #00b7ff; /* 使用与图片中一致的颜色 */
   margin: 0 auto 20px; /* 自动左右对齐，并调整下方的间距 */
