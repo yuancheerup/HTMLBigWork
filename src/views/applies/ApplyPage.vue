@@ -36,7 +36,7 @@ const apps = ref([
   },
   {
     name: '应用2',
-    urlName: 'account',
+    urlName: 'drink',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
