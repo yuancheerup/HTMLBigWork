@@ -10,6 +10,7 @@ import UserPage from '@/views/user/UserPage.vue'
 import ShopPage from '@/views/shop/ShopPage.vue'
 import TomatoClock from '@/views/applies/TomatoClock.vue'
 import RestTime from '@/views/home/RestTime.vue'
+import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
 
 const router = createRouter({
@@ -58,6 +59,12 @@ const router = createRouter({
     {
       path: '/circle',
       component: CirclePage
+    },
+    {
+      path: '/comments/:postId',
+      name: 'PostComments',
+      component: PostComments,
+      props: true
     },
     {
       path: '/topic',
