@@ -8,7 +8,7 @@
         :style="{ width: appWidth }"
       >
         <!-- 跳转链接设置 -->
-        <router-link :to="`/app/${app.name}`" class="app-link">
+        <router-link :to="`/apply/${app.urlName}`" class="app-link">
           <img :src="app.imgSrc" class="app-icon" alt="App Icon" />
           <div class="app-name">{{ app.name }}</div>
         </router-link>
@@ -29,48 +29,56 @@ import FooterLayout from '../layout/FooterLayout.vue'
 const apps = ref([
   {
     name: '应用1',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用2',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用3',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用4',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用5',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用6',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用7',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
     name: '应用8',
+    urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'

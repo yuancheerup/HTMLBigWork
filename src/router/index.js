@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import GuidePage from '@/views/guide/GuidePage.vue'
 import HomePage from '@/views/home/HomePage.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
+import AccountPage from '@/views/applies/AccountPage.vue'
 import CirclePage from '@/views/circle/CirclePage.vue'
 import LoginPage from '@/views/login/LoginPage.vue'
 import RegisterPage from '@/views/login/RegisterPage.vue'
@@ -8,7 +10,6 @@ import ModifyPasswordPage from '@/views/login/ModifyPasswordPage.vue'
 import TopicPage from '@/views/topic/TopicPage.vue'
 import UserPage from '@/views/user/UserPage.vue'
 import ShopPage from '@/views/shop/ShopPage.vue'
-import TomatoClock from '@/views/applies/TomatoClock.vue'
 import RestTime from '@/views/home/RestTime.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
@@ -18,15 +19,15 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/guide'
+    },
+    {
+      path: '/guide',
+      component: GuidePage
     },
     {
       path: '/home',
       component: HomePage
-    },
-    {
-      path: '/tomato',
-      component: TomatoClock
     },
     {
       path: '/rest',
@@ -55,6 +56,10 @@ const router = createRouter({
     {
       path: '/apply',
       component: ApplyPage
+    },
+    {
+      path: '/apply/account',
+      component: AccountPage
     },
     {
       path: '/circle',

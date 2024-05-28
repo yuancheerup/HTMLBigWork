@@ -81,8 +81,7 @@ const toggleRePasswordVisibility = () => {
             :rules="[
               {
                 validator: passwordValidator,
-                message:
-                  '密码不少于8个字符, 只能包含数字、大小写字母和特殊符号',
+                message: '不少于8个字符, 只包含数字、大小写字母和特殊符号',
                 trigger: 'onBlur'
               }
             ]"

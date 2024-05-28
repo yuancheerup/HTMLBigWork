@@ -23,7 +23,7 @@ const onSubmit = () => {
     password.value === userStore.password
   ) {
     showSuccessToast('登录成功')
-    router.push('/')
+    router.push('/home')
   } else {
     showFailToast('用户名或密码错误')
   }
@@ -78,8 +78,7 @@ const togglePasswordVisibility = () => {
             :rules="[
               {
                 validator: passwordValidator,
-                message:
-                  '密码不少于8个字符, 只能包含数字、大小写字母和特殊符号',
+                message: '不少于8个字符, 只包含数字、大小写字母和特殊符号',
                 trigger: 'onBlur'
               }
             ]"
