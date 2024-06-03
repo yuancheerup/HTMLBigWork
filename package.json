@@ -11,10 +11,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "canvas-scale": "^1.0.6",
+    "chart.js": "^4.4.3",
+    "echarts": "^5.5.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
     "vant": "^4.9.0",
     "vue": "^3.4.21",
+    "vue-echarts": "^6.7.2",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
@@ -24,6 +28,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "prettier": "^3.2.5",
+    "slide-ruler": "^1.2.2",
     "vite": "^5.2.8"
   }
 }

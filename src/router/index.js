@@ -3,7 +3,9 @@ import GuidePage from '@/views/guide/GuidePage.vue'
 import HomePage from '@/views/home/HomePage.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
 import AccountPage from '@/views/applies/AccountPage.vue'
-import DrinkPage from '@/views/applies/DrinkPage.vue'
+import DrinkWater from '@/views/applies/DrinkWater.vue'
+import DrinkStats from '@/views/applies/DrinkStats.vue'
+import DrinkSettingsPage from '@/views/applies/DrinkSettingsPage.vue'
 import CirclePage from '@/views/circle/CirclePage.vue'
 import LoginPage from '@/views/login/LoginPage.vue'
 import RegisterPage from '@/views/login/RegisterPage.vue'
@@ -64,8 +66,10 @@ const router = createRouter({
     },
     {
       path: '/apply/drink',
-      component: DrinkPage
+      component: DrinkWater
     },
+    { path: '/apply/drink/stats', component: DrinkStats },
+    { path: '/apply/drink/settings', component: DrinkSettingsPage },
     {
       path: '/circle',
       component: CirclePage
