@@ -27,7 +27,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import DrinkButton from '@/views/applies/DrinkButton.vue'
+import DrinkButton from '@/views/applies/drinkComponents/DrinkButton.vue'
 
 const showPopup = ref(false)
 const router = useRouter()

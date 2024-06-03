@@ -39,7 +39,6 @@ const onCancel = () => {
   showBottom.value = false // 取消时关闭弹出层
 }
 
-const contentFlag = ref(true)
 const accountFlag = ref(false)
 const onClickAddAccount = () => {
   accountFlag.value = !accountFlag.value
@@ -216,6 +215,20 @@ const onConfirmAdd = () => {
 const onCancelAdd = () => {
   showBottomAdd.value = false // 取消时关闭弹出层
 }
+
+// 控制是否显示账单
+const contentBillFlag = ref(false)
+const contentBill = ref([])
+if (accountStore.bills.length > 0) {
+  contentBillFlag.value = true
+  contentBill.value = accountStore.bills
+  contentBill.value = accountStore.bills = contentBill.value.sort((a, b) => {
+    const dateA = new Date(a.date[0], a.date[1] - 1, a.date[2])
+    const dateB = new Date(b.date[0], b.date[1] - 1, b.date[2])
+    return dateB - dateA
+  })
+  console.log(contentBill.value)
+}
 </script>
 
 <template>
@@ -353,11 +366,11 @@ const onCancelAdd = () => {
     </div>
 
     <!-- 主体内容 -->
-    <div class="content" v-if="contentFlag">
+    <div class="content" v-if="!contentBillFlag">
       <span class="content-no">暂无账单</span>
     </div>
     <div class="content" v-else>
-      <div class="">账单内容</div>
+      <div class="content-bill">账单内容</div>
     </div>
 
     <!-- 底部弹出 -->

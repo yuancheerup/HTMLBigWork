@@ -4,8 +4,8 @@ import { defineStore } from 'pinia'
 export const useAccountStore = defineStore(
   'account',
   () => {
-    const totalExpend = ref(0)
-    const totalIncome = ref(0)
+    // const totalExpend = ref(0)
+    // const totalIncome = ref(0)
 
     const bills = ref([])
 
@@ -20,8 +20,6 @@ export const useAccountStore = defineStore(
     }
 
     return {
-      totalExpend,
-      totalIncome,
       bills,
       addBill
     }
