@@ -3,6 +3,7 @@ import GuidePage from '@/views/guide/GuidePage.vue'
 import HomePage from '@/views/home/HomePage.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
 import AccountPage from '@/views/applies/AccountPage.vue'
+import StatisticPage from '@/views/applies/accountComponents/StatisticPage.vue'
 import DrinkWater from '@/views/applies/DrinkWater.vue'
 import DrinkStats from '@/views/applies/drinkComponents/DrinkStats.vue'
 import DrinkSettingsPage from '@/views/applies/drinkComponents/DrinkSettingsPage.vue'
@@ -63,6 +64,10 @@ const router = createRouter({
     {
       path: '/apply/account',
       component: AccountPage
+    },
+    {
+      path: '/apply/account/statistics',
+      component: StatisticPage
     },
     {
       path: '/apply/drink',
