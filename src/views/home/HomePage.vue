@@ -67,10 +67,10 @@ const list = ref([
 
     <!-- 宫格 -->
     <van-grid>
-      <van-grid-item icon="photo-o" text="文字" />
-      <van-grid-item icon="photo-o" text="文字" />
-      <van-grid-item icon="photo-o" text="文字" />
-      <van-grid-item icon="photo-o" text="文字" />
+      <van-grid-item icon="photo-o" text="果蔬百科" to="/fruit" />
+      <van-grid-item icon="photo-o" text="生活小妙招" to="/life" />
+      <van-grid-item icon="photo-o" text="四季养生" to="/healthy" />
+      <van-grid-item icon="photo-o" text="放空" to="/rest" />
     </van-grid>
 
     <!-- 列表 -->

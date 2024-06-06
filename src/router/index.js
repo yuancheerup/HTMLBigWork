@@ -1,6 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import GuidePage from '@/views/guide/GuidePage.vue'
 import HomePage from '@/views/home/HomePage.vue'
+import FruitVegetable from '@/views/home/FruitVegetable.vue'
+import LifeSkill from '@/views/home/LifeSkill.vue'
+import KeepHealthy from '@/views/home/KeepHealthy.vue'
+import RestTime from '@/views/home/RestTime.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
 import AccountPage from '@/views/applies/AccountPage.vue'
 import StatisticPage from '@/views/applies/accountComponents/StatisticPage.vue'
@@ -14,7 +18,6 @@ import ModifyPasswordPage from '@/views/login/ModifyPasswordPage.vue'
 import TopicPage from '@/views/topic/TopicPage.vue'
 import UserPage from '@/views/user/UserPage.vue'
 import ShopPage from '@/views/shop/ShopPage.vue'
-import RestTime from '@/views/home/RestTime.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
 
@@ -32,6 +35,18 @@ const router = createRouter({
     {
       path: '/home',
       component: HomePage
+    },
+    {
+      path: '/fruit',
+      component: FruitVegetable
+    },
+    {
+      path: '/life',
+      component: LifeSkill
+    },
+    {
+      path: '/healthy',
+      component: KeepHealthy
     },
     {
       path: '/rest',
