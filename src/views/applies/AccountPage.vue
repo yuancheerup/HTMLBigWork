@@ -379,13 +379,13 @@ const groupedBills = computed(() => {
           </div>
           <div class="header-middle-item">
             <div class="header-middle-expend">
-              <span>支出</span>
+              <span style="font-size: 15px">支出</span>
               <span>
                 {{ accountStore.totalExpend }}
               </span>
             </div>
             <div class="header-middle-expend">
-              <span>收入</span>
+              <span style="font-size: 15px">收入</span>
               <span>
                 {{ accountStore.totalIncome }}
               </span>
