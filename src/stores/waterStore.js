@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const useDrinkStore = defineStore('drink', {
   state: () => ({
     drinks: JSON.parse(localStorage.getItem('drinks') || '[]'),
-    target: JSON.parse(localStorage.getItem('target') || '2000') // 默认目标2000ml
+    target: JSON.parse(localStorage.getItem('target') || '2000'), // 默认目标2000ml
+    sum: JSON.parse(localStorage.getItem('sum') || '0') // 默认0ml
   }),
   getters: {
     totalDrunk: (state) =>
@@ -25,6 +26,10 @@ export const useDrinkStore = defineStore('drink', {
     setTarget(target) {
       this.target = target
       localStorage.setItem('target', JSON.stringify(target))
+    },
+    setSum(sum) {
+      this.sum = sum
+      localStorage.setItem('sum', JSON.stringify(sum))
     }
   }
 })

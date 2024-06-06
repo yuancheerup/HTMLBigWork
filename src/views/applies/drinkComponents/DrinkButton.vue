@@ -21,6 +21,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useDrinkStore } from '@/stores/waterStore'
+import { showSuccessToast } from 'vant'
 
 const showPopup = ref(false)
 const drinkStore = useDrinkStore()
@@ -69,7 +70,7 @@ const columns = [
     children: [...mlOptions, { text: '自定义', value: 'custom_soda' }]
   }
 ]
-
+// const sum = ref(drinkStore.sum)
 const onConfirm = ({ selectedOptions }) => {
   const type = selectedOptions[0].value // 饮品类别
   const amount = selectedOptions[1].value // 饮用量
@@ -79,7 +80,11 @@ const onConfirm = ({ selectedOptions }) => {
     amount: parseInt(amount),
     date: new Date().toISOString().slice(0, 10)
   })
+
+  // drinkStore.setSum(sum.value + amount)
+
   showPopup.value = false
+  showSuccessToast('喝水记录已保存')
 }
 </script>
 
