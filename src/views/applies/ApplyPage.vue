@@ -28,22 +28,22 @@ import FooterLayout from '../layout/FooterLayout.vue'
 // 定义应用数据
 const apps = ref([
   {
-    name: '应用1',
+    name: '记账',
     urlName: 'account',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
-    name: '应用2',
+    name: '喝水',
     urlName: 'drink',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
-    name: '应用3',
-    urlName: 'account',
+    name: '每日先知',
+    urlName: 'weather',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'

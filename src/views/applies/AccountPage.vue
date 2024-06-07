@@ -482,10 +482,7 @@ const groupedBills = computed(() => {
       </van-popup>
 
       <!-- 左侧弹出 -->
-      <van-popup
-        v-model:show="showLeft"
-        position="left"
-        :style="{ width: '50%', height: '100%' }"
+      <van-popup position="left" :style="{ width: '50%', height: '100%' }"
         >内容</van-popup
       >
 

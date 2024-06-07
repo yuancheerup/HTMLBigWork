@@ -4,6 +4,7 @@ import router from './router'
 import pinia from '@/stores' // 引入pinia
 import vantUI from '@/utils/vant-ui.js' // 引入Vant UI
 import '@/assets/iconfont/iconfont.css'
+import '@/assets/iconfont/iconfont.js'
 import * as echarts from 'echarts'
 
 const app = createApp(App) // 创建Vue应用

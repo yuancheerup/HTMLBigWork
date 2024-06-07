@@ -11,11 +11,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "canvas-scale": "^1.0.6",
     "chart.js": "^4.4.3",
     "echarts": "^5.5.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "qweather-icons": "^1.6.0",
     "vant": "^4.9.0",
     "vue": "^3.4.21",
     "vue-echarts": "^6.7.2",

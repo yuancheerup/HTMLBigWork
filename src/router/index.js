@@ -11,6 +11,7 @@ import StatisticPage from '@/views/applies/accountComponents/StatisticPage.vue'
 import DrinkWater from '@/views/applies/DrinkWater.vue'
 import DrinkStats from '@/views/applies/drinkComponents/DrinkStats.vue'
 import DrinkSettingsPage from '@/views/applies/drinkComponents/DrinkSettingsPage.vue'
+import WeatherPage from '@/views/applies/WeatherPage.vue'
 import CirclePage from '@/views/circle/CirclePage.vue'
 import LoginPage from '@/views/login/LoginPage.vue'
 import RegisterPage from '@/views/login/RegisterPage.vue'
@@ -90,6 +91,10 @@ const router = createRouter({
     },
     { path: '/apply/drink/stats', component: DrinkStats },
     { path: '/apply/drink/settings', component: DrinkSettingsPage },
+    {
+      path: '/apply/weather',
+      component: WeatherPage
+    },
     {
       path: '/circle',
       component: CirclePage
