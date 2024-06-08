@@ -32,8 +32,6 @@
 </template>
 
 <script setup>
-import 'vant/lib/icon/style'
-import 'vant/lib/badge/style'
 import { ref, defineProps, defineEmits } from 'vue'
 
 const props = defineProps({

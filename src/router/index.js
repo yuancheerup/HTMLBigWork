@@ -21,6 +21,7 @@ import UserPage from '@/views/user/UserPage.vue'
 import ShopPage from '@/views/shop/ShopPage.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
+import PlayVideo from '@/views/home/components/PlayVedio.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
     {
       path: '/life',
       component: LifeSkill
+    },
+    {
+      path: '/play-video',
+      name: 'PlayVideo',
+      component: PlayVideo
     },
     {
       path: '/healthy',
