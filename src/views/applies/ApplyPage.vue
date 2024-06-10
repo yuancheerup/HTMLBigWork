@@ -49,8 +49,8 @@ const apps = ref([
     height: '120px'
   },
   {
-    name: '应用4',
-    urlName: 'account',
+    name: '日记',
+    urlName: 'diary',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
