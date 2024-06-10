@@ -5,6 +5,7 @@ import FruitVegetable from '@/views/home/FruitVegetable.vue'
 import LifeSkill from '@/views/home/LifeSkill.vue'
 import KeepHealthy from '@/views/home/KeepHealthy.vue'
 import RestTime from '@/views/home/RestTime.vue'
+import Music from '@/views/home/components/Music.vue'
 import ApplyPage from '@/views/applies/ApplyPage.vue'
 import AccountPage from '@/views/applies/AccountPage.vue'
 import StatisticPage from '@/views/applies/accountComponents/StatisticPage.vue'
@@ -59,6 +60,10 @@ const router = createRouter({
     {
       path: '/rest',
       component: RestTime
+    },
+    {
+      path: '/music',
+      component: Music
     },
     {
       path: '/shop',

@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onBeforeMount } from 'vue'
 import axios from 'axios'
+import PoemPage from '@/views/applies/weatherComponents/PoemPage.vue'
+import EnglishComponent from '@/views/applies/weatherComponents/EnglishComponent.vue'
 
 // 导航返回函数
 const onClickBack = () => history.back()
@@ -10,17 +12,20 @@ const currentWeather = ref({})
 const cityName = ref('')
 const districtName = ref('')
 
+// 获取城市id
 const getCityId = async (longitude, latitude) => {
   const apiKey = '55d6714ae69e4758862a46e2ce54c034'
   const url = `https://geoapi.qweather.com/v2/city/lookup?key=${apiKey}&location=${longitude},${latitude}`
   try {
     const response = await axios.get(url)
+    console.log('respones:', response)
     if (
       response.data &&
       response.data.location &&
       response.data.location.length > 0
     ) {
       const location = response.data.location[0]
+      console.log('location:' + longitude + latitude)
       cityName.value = location.name // 获取城市名称
       districtName.value = location.adm2 // 获取行政区名称（县或区）
       return location.id
@@ -33,6 +38,7 @@ const getCityId = async (longitude, latitude) => {
   }
 }
 
+// 获取天气
 const getWeather = async (longitude, latitude) => {
   const apiKey = '55d6714ae69e4758862a46e2ce54c034'
   const cityId = await getCityId(longitude, latitude)
@@ -61,11 +67,13 @@ const getWeather = async (longitude, latitude) => {
   }
 }
 
+// 获取经纬度
 const getLocationAndWeather = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { longitude, latitude } = position.coords
+        console.log('定位成功：', longitude, latitude)
         getWeather(longitude, latitude)
       },
       (error) => {
@@ -99,22 +107,27 @@ function formatTime(fxTime) {
     @click-left="onClickBack"
   />
 
-  <div class="title">天气</div>
   <div class="weather">
     <div class="weather-container" v-if="weather">
+      <div class="title">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-tianqi"></use>
+        </svg>
+        天气
+      </div>
       <div class="current-weather">
         <div class="left">
           <p class="temp">{{ currentWeather.temp }}°</p>
           <p class="temp-range">
             {{ currentWeather.tempMin }}/{{ currentWeather.tempMax }}°
           </p>
-          <p class="city">当前地区</p>
-          <!-- <p class="city">{{ cityName }}市, {{ districtName }}</p> -->
+          <!-- <p class="city">当前地区</p> -->
+          <p class="city">{{ cityName }}市, {{ districtName }}</p>
           <!-- 显示具体城市和行政区名称 -->
           <p class="weather-text">{{ currentWeather.text }}</p>
         </div>
         <div class="right">
-          <i :class="'qi-' + currentWeather.icon"></i>
+          <i :class="'qi-' + currentWeather.icon" class="icon"></i>
           <p class="precip">降雨概率 {{ currentWeather.pop }}%</p>
         </div>
       </div>
@@ -130,13 +143,18 @@ function formatTime(fxTime) {
         </div>
       </div>
     </div>
-    <div v-else>加载中...</div>
+    <div v-else>
+      <van-loading size="40px" vertical type="spinner">加载中...</van-loading>
+    </div>
   </div>
+
+  <PoemPage></PoemPage>
+  <EnglishComponent></EnglishComponent>
 </template>
 
 <style scoped>
 .title {
-  margin: 22px;
+  margin-bottom: 15px;
 }
 
 .weather {
@@ -146,7 +164,7 @@ function formatTime(fxTime) {
 }
 
 .weather-container {
-  width: 300px;
+  width: 81%;
   padding: 20px;
   background-color: #409eff;
   border-radius: 10px;
@@ -168,6 +186,10 @@ function formatTime(fxTime) {
 .current-weather .right {
   flex: 1;
   text-align: right;
+
+  .icon {
+    font-size: 45px;
+  }
 }
 
 .temp {
@@ -203,5 +225,13 @@ function formatTime(fxTime) {
 
 .hourly-item .temp {
   font-size: 18px;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>
