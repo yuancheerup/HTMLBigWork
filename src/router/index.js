@@ -14,6 +14,8 @@ import DrinkStats from '@/views/applies/drinkComponents/DrinkStats.vue'
 import DrinkSettingsPage from '@/views/applies/drinkComponents/DrinkSettingsPage.vue'
 import WeatherPage from '@/views/applies/WeatherPage.vue'
 import DiaryPage from '@/views/applies/DiaryPage.vue'
+import MemorialDay from '@/views/applies/MemorialDay.vue'
+import DailySchedule from '@/views/applies/DailySchedule.vue'
 import CirclePage from '@/views/circle/CirclePage.vue'
 import LoginPage from '@/views/login/LoginPage.vue'
 import RegisterPage from '@/views/login/RegisterPage.vue'
@@ -108,6 +110,18 @@ const router = createRouter({
     {
       path: '/apply/weather',
       component: WeatherPage
+    },
+    {
+      path: '/apply/memory',
+      component: MemorialDay
+    },
+    {
+      path: '/apply/schedule',
+      component: DailySchedule
+    },
+    {
+      path: '/apply/drink',
+      component: DrinkWater
     },
     {
       path: '/apply/diary',

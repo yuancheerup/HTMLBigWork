@@ -56,15 +56,15 @@ const apps = ref([
     height: '120px'
   },
   {
-    name: '应用5',
-    urlName: 'account',
+    name: '倒数纪念日',
+    urlName: 'memory',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
-    name: '应用6',
-    urlName: 'account',
+    name: '作息表',
+    urlName: 'schedule',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'

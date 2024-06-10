@@ -21,7 +21,7 @@ const text = ref([
   {
     title: '经典',
     icon: 'icon-jingdian',
-    gradient: 'linear-gradient(to right, #30cfd0, #330867)'
+    gradient: 'linear-gradient(to right, #30cfd0, #6d26c2)'
   },
   {
     title: 'DJ',
