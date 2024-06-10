@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4082193",
+      "name": "英语-abc",
+      "font_class": "yingyu-abc",
+      "unicode": "e699",
+      "unicode_decimal": 59033
+    },
+    {
+      "icon_id": "5545778",
+      "name": "古诗词",
+      "font_class": "gushici",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "27074245",
+      "name": "天气",
+      "font_class": "tianqi",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
       "icon_id": "1264326",
       "name": "荷兰豆-Beans",
       "font_class": "Beans",
