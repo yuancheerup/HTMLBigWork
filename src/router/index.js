@@ -23,6 +23,8 @@ import ShopPage from '@/views/shop/ShopPage.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
 import PlayVideo from '@/views/home/components/PlayVedio.vue'
+import AlbumPage from '@/views/applies/AlbumPage.vue'
+import CipherBoxPage from '@/views/applies/CipherBoxPage.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -105,6 +107,14 @@ const router = createRouter({
     {
       path: '/apply/diary',
       component: DiaryPage
+    },
+    {
+      path: '/apply/album',
+      component: AlbumPage
+    },
+    {
+      path: '/apply/cipherBox',
+      component: CipherBoxPage
     },
     {
       path: '/circle',

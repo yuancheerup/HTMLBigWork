@@ -70,15 +70,15 @@ const apps = ref([
     height: '120px'
   },
   {
-    name: '应用7',
-    urlName: 'account',
+    name: '隐私相册',
+    urlName: 'album',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
   },
   {
-    name: '应用8',
-    urlName: 'account',
+    name: '密码箱',
+    urlName: 'cipherBox',
     imgSrc: '/src/assets/categood.png',
     width: '100px',
     height: '120px'
