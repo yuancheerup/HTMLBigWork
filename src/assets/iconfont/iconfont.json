@@ -6,6 +6,76 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6607917",
+      "name": "耳机",
+      "font_class": "erji",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "10037126",
+      "name": "戏曲",
+      "font_class": "xiqu",
+      "unicode": "e914",
+      "unicode_decimal": 59668
+    },
+    {
+      "icon_id": "11372662",
+      "name": "儿童票",
+      "font_class": "ertongpiao",
+      "unicode": "e8af",
+      "unicode_decimal": 59567
+    },
+    {
+      "icon_id": "27204547",
+      "name": "1_欧美1",
+      "font_class": "a-1_oumei1",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "1314983",
+      "name": "DJ",
+      "font_class": "DJ",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "1987669",
+      "name": "纯音乐",
+      "font_class": "chunyinle",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "3017060",
+      "name": "karaoke",
+      "font_class": "karaoke",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "11953596",
+      "name": "经典",
+      "font_class": "jingdian",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "26064852",
+      "name": "治愈",
+      "font_class": "zhiyu",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "38642670",
+      "name": "国风扇子",
+      "font_class": "guofengshanzi",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
       "icon_id": "4082193",
       "name": "英语-abc",
       "font_class": "yingyu-abc",

@@ -13,26 +13,50 @@ const songInfo = ref([
   {
     name: '若是月亮还没来',
     author: '海洋悅动',
-    img: '图片链接',
+    img: '../../../../src/assets/img/若是月亮还没来.jpg',
     url: '../../../../src/assets/audio/若是月亮没来 (纯音乐).mp3'
   },
   {
-    name: '歌曲名',
-    author: '作者',
-    img: '图片链接',
-    url: '音频链接'
+    name: '盛夏与蝉鸣',
+    author: 'hea2t',
+    img: '../../../../src/assets/img/hea2t - 盛夏与蝉鸣.jpg',
+    url: '../../../../src/assets/audio/hea2t - 盛夏与蝉鸣.mp3'
   },
   {
-    name: '歌曲名',
-    author: '作者',
-    img: '图片链接',
-    url: '音频链接'
+    name: 'Time To Love',
+    author: 'OCTOBER',
+    img: '../../../../src/assets/img/OCTOBER - Time To Love (相爱时间).jpg',
+    url: '../../../../src/assets/audio/OCTOBER - Time To Love (相爱时间).mp3'
   },
   {
-    name: '歌曲名',
-    author: '作者',
-    img: '图片链接',
-    url: '音频链接'
+    name: 'Bloom of Youth',
+    author: '清水準',
+    img: '../../../../src/assets/img/清水準一 - Bloom of Youth (风华正茂).jpg',
+    url: '../../../../src/assets/audio/清水準一 - Bloom of Youth (风华正茂).mp3'
+  },
+  {
+    name: '思绪放松',
+    author: '张颜烁',
+    img: '../../../../src/assets/img/张颜烁 - 思绪放松.jpg',
+    url: '../../../../src/assets/audio/张颜烁 - 思绪放松.mp3'
+  },
+  {
+    name: '踏进云端',
+    author: '张颜烁',
+    img: '../../../../src/assets/img/张颜烁 - 踏进云端.jpg',
+    url: '../../../../src/assets/audio/张颜烁 - 踏进云端.mp3'
+  },
+  {
+    name: '春游 (吉它曲)',
+    author: '野浪吉他社',
+    img: '../../../../src/assets/img/野浪吉他社 - 春游 (吉它曲).jpg',
+    url: '../../../../src/assets/audio/野浪吉他社 - 春游 (吉它曲).mp3'
+  },
+  {
+    name: '被治愈的时光 (吉它曲)',
+    author: '野浪吉他社',
+    img: '../../../../src/assets/img/野浪吉他社 - 被治愈的时光 (吉它曲).jpg',
+    url: '../../../../src/assets/audio/野浪吉他社 - 被治愈的时光 (吉它曲).mp3'
   }
 ])
 
