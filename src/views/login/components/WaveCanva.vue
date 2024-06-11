@@ -98,20 +98,34 @@ const drawWave = () => {
 </script>
 
 <template>
-  <div class="wave-container">
-    <canvas id="waveCanvas" class="wave"></canvas>
+  <div class="box">
+    <div class="wave-container">
+      <canvas id="waveCanvas" class="wave"></canvas>
+    </div>
+    <!-- <div class="back"><van-icon name="cross" /></div> -->
   </div>
 </template>
 
 <style scoped>
-.wave-container {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-}
+.box {
+  position: relative;
+  .wave-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
 
-.wave {
-  width: 100%;
-  height: 100%;
+    .wave {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* .back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: #fff;
+  } */
 }
 </style>

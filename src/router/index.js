@@ -22,7 +22,6 @@ import RegisterPage from '@/views/login/RegisterPage.vue'
 import ModifyPasswordPage from '@/views/login/ModifyPasswordPage.vue'
 import TopicPage from '@/views/topic/TopicPage.vue'
 import UserPage from '@/views/user/UserPage.vue'
-import ShopPage from '@/views/shop/ShopPage.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
 import PlayVideo from '@/views/home/components/PlayVedio.vue'
@@ -46,36 +45,53 @@ const router = createRouter({
     },
     {
       path: '/fruit',
-      component: FruitVegetable
+      component: FruitVegetable,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/life',
-      component: LifeSkill
+      component: LifeSkill,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/play-video',
       name: 'PlayVideo',
-      component: PlayVideo
+      component: PlayVideo,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/healthy',
-      component: KeepHealthy
+      component: KeepHealthy,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/rest',
-      component: RestTime
+      component: RestTime,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/music',
-      component: Music
-    },
-    {
-      path: '/shop',
-      component: ShopPage
+      component: Music,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/article',
-      component: ArticlePage
+      component: ArticlePage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/login',
@@ -95,59 +111,110 @@ const router = createRouter({
     },
     {
       path: '/apply/account',
-      component: AccountPage
+      component: AccountPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/account/statistics',
-      component: StatisticPage
+      component: StatisticPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/drink',
-      component: DrinkWater
+      component: DrinkWater,
+      meta: {
+        requiresAuth: true
+      }
     },
-    { path: '/apply/drink/stats', component: DrinkStats },
-    { path: '/apply/drink/settings', component: DrinkSettingsPage },
+    {
+      path: '/apply/drink/stats',
+      component: DrinkStats,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/apply/drink/settings',
+      component: DrinkSettingsPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: '/apply/weather',
-      component: WeatherPage
+      component: WeatherPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/memory',
-      component: MemorialDay
+      component: MemorialDay,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/schedule',
-      component: DailySchedule
+      component: DailySchedule,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/drink',
-      component: DrinkWater
+      component: DrinkWater,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/diary',
-      component: DiaryPage
+      component: DiaryPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/album',
-      component: AlbumPage
+      component: AlbumPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/apply/cipherBox',
-      component: CipherBoxPage
+      component: CipherBoxPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/circle',
-      component: CirclePage
+      component: CirclePage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/comments/:postId',
       name: 'PostComments',
       component: PostComments,
-      props: true
+      props: true,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/topic',
-      component: TopicPage
+      component: TopicPage,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/user',
@@ -155,5 +222,16 @@ const router = createRouter({
     }
   ]
 })
+
+// 拦截未登录用户
+// router.beforeEach((to, from, next) => {
+//   const user = JSON.parse(localStorage.getItem('user'))
+
+//   if (to.matched.some((record) => record.meta.requiresAuth) && !user) {
+//     next('/login')
+//   } else {
+//     next()
+//   }
+// })
 
 export default router
