@@ -9,10 +9,16 @@
       >
         <!-- 跳转链接设置 -->
         <router-link :to="`/apply/${app.urlName}`" class="app-link">
-          <div class="app-icon">
-            <svg class="icon" aria-hidden="true">
+          <div
+            class="app-icon"
+            :style="{
+              backgroundColor: app.color
+            }"
+          >
+            <!-- <svg class="icon" aria-hidden="true">
               <use :xlink:href="app.imgSrc"></use>
-            </svg>
+            </svg> -->
+            <span class="iconfont icon" :class="app.imgSrc"></span>
           </div>
           <!-- <img :src="app.imgSrc" class="app-icon" alt="App Icon" /> -->
           <div class="app-name">{{ app.name }}</div>
@@ -35,56 +41,64 @@ const apps = ref([
   {
     name: '记账',
     urlName: 'account',
-    imgSrc: '#icon-jizhang2',
+    imgSrc: 'icon-jizhang2',
+    color: '#54c8d5',
     width: '100px',
     height: '120px'
   },
   {
     name: '喝水',
     urlName: 'drink',
-    imgSrc: '#icon-shuidi',
+    imgSrc: 'icon-shuidi',
+    color: '#37aeff',
     width: '100px',
     height: '120px'
   },
   {
     name: '每日先知',
     urlName: 'weather',
-    imgSrc: '#icon-dengpao1',
+    imgSrc: 'icon-dengpao1',
+    color: '#fd4764',
     width: '100px',
     height: '120px'
   },
   {
     name: '日记',
     urlName: 'diary',
-    imgSrc: '#icon-riji_un',
+    imgSrc: 'icon-riji_un',
+    color: '#f75e3a',
     width: '100px',
     height: '120px'
   },
   {
     name: '倒数纪念日',
     urlName: 'memory',
-    imgSrc: '#icon-rili',
+    imgSrc: 'icon-rili',
+    color: '#37acfb',
     width: '100px',
     height: '120px'
   },
   {
     name: '作息表',
     urlName: 'schedule',
-    imgSrc: '#icon-xueqiyuzuoxi',
+    imgSrc: 'icon-xueqiyuzuoxi',
+    color: '#fda752',
     width: '100px',
     height: '120px'
   },
   {
     name: '隐私相册',
     urlName: 'album',
-    imgSrc: '#icon-icon-yinsizhengce',
+    imgSrc: 'icon-icon-yinsizhengce',
+    color: '#7c7bf2',
     width: '100px',
     height: '120px'
   },
   {
     name: '密码箱',
     urlName: 'cipherBox',
-    imgSrc: '#icon-Icon-3',
+    imgSrc: 'icon-Icon-3',
+    color: '#6392f9',
     width: '100px',
     height: '120px'
   }
@@ -152,15 +166,16 @@ const appWidth = computed(() => {
 
 .icon {
   font-size: 60px;
+  color: #fff;
 }
 
-.icon {
+/* .icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
-}
+} */
 .app-name {
   font-size: 16px;
   color: #333;

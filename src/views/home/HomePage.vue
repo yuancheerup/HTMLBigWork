@@ -13,39 +13,35 @@ const onRefresh = () => {
 const list = ref([
   {
     id: 1,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+    imgSrc1: '../../src/assets/img/科技-1.jpg',
+    imgSrc2: '../../src/assets/img/科技-2.jpg',
+    title: '科技新闻',
+    desc1: '飞向月球',
+    desc2: '智能时代'
   },
   {
     id: 2,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+    imgSrc1: '../../src/assets/img/法律-1.jpg',
+    imgSrc2: '../../src/assets/img/法律-2.jpg',
+    title: '法律科普',
+    desc1: '法治深壹度',
+    desc2: '今日说法'
   },
   {
     id: 3,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+    imgSrc1: '../../src/assets/img/生活-4.png',
+    imgSrc2: '../../src/assets/img/生活-6.jpg',
+    title: '生活科普',
+    desc1: '防震减灾',
+    desc2: '食品安全'
   },
   {
     id: 4,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
-  },
-  {
-    id: 5,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
-  },
-  {
-    id: 6,
-    imgSrc: 'https://example.com/image.jpg',
-    title: '好看新闻',
-    desc: '云南弥勒：以赛为媒 生态文旅多元融合赋能乡村振兴'
+    imgSrc1: '../../src/assets/img/应急-1.png',
+    imgSrc2: '../../src/assets/img/应急-2.png',
+    title: '应急科普',
+    desc1: '被毒虫叮咬怎么办',
+    desc2: '如何避险泥石流'
   }
 ])
 </script>
@@ -80,9 +76,13 @@ const list = ref([
         <span>生活小妙招</span>
       </van-grid-item>
       <van-grid-item text="四季养生" to="/healthy">
-        <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-yangsheng1"></use>
-        </svg>
+        <span
+          class="icon iconfont icon-yangsheng"
+          style="color: #f89898"
+        ></span>
+        <!-- <svg class="icon" aria-hidden="true" style="color: #fff">
+          <use xlink:href="#icon-yangsheng" style="color: #fff"></use>
+        </svg> -->
         <span>四季养生</span>
       </van-grid-item>
       <van-grid-item text="放空" to="/rest">
@@ -97,26 +97,34 @@ const list = ref([
     <div class="lists">
       <div class="list" v-for="item in list" :key="item.id">
         <van-row class="header" justify="center">
-          <van-col span="17">
-            <div class="title">{{ item.title }}</div>
+          <van-col span="16">
+            <div class="title">
+              {{ item.title }}
+            </div>
           </van-col>
           <van-col span="6" class="more">
             <div>更多 ></div>
           </van-col>
         </van-row>
         <van-row class="content" justify="center">
-          <van-col span="17">
-            <div class="description">
-              {{ item.desc }}
-            </div>
-          </van-col>
-          <van-col span="6">
+          <van-col span="10" class="content-col">
             <van-image
               width="100%"
-              height="auto"
-              :src="item.imgSrc"
+              height="7rem"
+              :src="item.imgSrc1"
+              fit="cover"
+              position="center"
+            />
+            <div class="content-text">{{ item.desc1 }}</div>
+          </van-col>
+          <van-col span="10" class="content-col">
+            <van-image
+              width="100%"
+              height="7rem"
+              :src="item.imgSrc2"
               fit="cover"
             />
+            <div class="content-text">{{ item.desc2 }}</div>
           </van-col>
         </van-row>
       </div>
@@ -127,6 +135,10 @@ const list = ref([
 </template>
 
 <style scoped>
+/* .van-pull-refresh {
+  background-color: #fafafa;
+} */
+
 .my-swipe .van-swipe-item {
   color: #fff;
   font-size: 20px;
@@ -141,7 +153,9 @@ const list = ref([
   justify-content: center;
   align-items: center;
   font-size: 13px;
-  border: 1px solid #f5f5f6;
+  border: 1px solid #fafafa;
+  border-bottom: 10px solid #fafafa;
+  /* --van-grid-item-content-background: #fafafa; */
 
   .icon {
     font-size: 30px;
@@ -155,8 +169,13 @@ const list = ref([
     margin-top: 25px;
 
     .title {
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 5px solid #39a9ed;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 16px;
+      color: #337ecc;
+      /* color: #000; */
     }
 
     .more {
@@ -165,11 +184,18 @@ const list = ref([
 
     .more div {
       font-size: 14px;
-      color: #999;
+      color: #337ecc;
     }
 
     .content {
       margin-top: 10px;
+
+      .content-col {
+        margin: 10px 12px;
+      }
+      .content-text {
+        text-align: center;
+      }
     }
 
     .description {

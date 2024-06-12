@@ -9,9 +9,13 @@
         <img :src="avatarPath" alt="用户头像" />
         <div class="username">{{ username }}</div>
       </div>
-      <van-button plain type="primary" class="customer-service"
-        >客服</van-button
-      >
+      <div class="customer-service">
+        <van-icon
+          name="service-o"
+          style="font-size: 25px; font-weight: bolder"
+        />
+        <span>客服</span>
+      </div>
     </div>
 
     <!-- 第二部分 我的消息，桌面组件，收藏，高级功能 -->
@@ -146,7 +150,7 @@ function toLogin() {
 .user-header {
   background-size: cover;
   background-position: center;
-  padding: 60px 20px;
+  padding: 30px 20px;
   /* 增加高度 */
   border-radius: 8px;
   margin-bottom: 10px;
@@ -156,12 +160,13 @@ function toLogin() {
   position: relative;
   color: #fff;
   /* 确保文字在背景图片上可见 */
+  background: linear-gradient(to bottom, #faecd8, #fdf6ec);
 }
 
 .user-avatar {
-  position: relative;
+  /* position: relative;
   left: -5px;
-  top: -50px;
+  top: -50px; */
   /* 上移 */
   display: flex;
   align-items: center;
@@ -184,12 +189,17 @@ function toLogin() {
 
 .customer-service {
   position: relative;
-  top: -50px;
+  top: -20px;
   right: -5px;
-  background-color: #fff;
-  color: #333;
+  /* background-color: #fff; */
+  color: #082d45;
+  font-size: 13px;
   padding: 5px 10px;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .function-row {
