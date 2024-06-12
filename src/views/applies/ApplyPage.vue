@@ -9,7 +9,12 @@
       >
         <!-- 跳转链接设置 -->
         <router-link :to="`/apply/${app.urlName}`" class="app-link">
-          <img :src="app.imgSrc" class="app-icon" alt="App Icon" />
+          <div class="app-icon">
+            <svg class="icon" aria-hidden="true">
+              <use :xlink:href="app.imgSrc"></use>
+            </svg>
+          </div>
+          <!-- <img :src="app.imgSrc" class="app-icon" alt="App Icon" /> -->
           <div class="app-name">{{ app.name }}</div>
         </router-link>
       </div>
@@ -30,56 +35,56 @@ const apps = ref([
   {
     name: '记账',
     urlName: 'account',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-jizhang2',
     width: '100px',
     height: '120px'
   },
   {
     name: '喝水',
     urlName: 'drink',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-shuidi',
     width: '100px',
     height: '120px'
   },
   {
     name: '每日先知',
     urlName: 'weather',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-dengpao1',
     width: '100px',
     height: '120px'
   },
   {
     name: '日记',
     urlName: 'diary',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-riji_un',
     width: '100px',
     height: '120px'
   },
   {
     name: '倒数纪念日',
     urlName: 'memory',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-rili',
     width: '100px',
     height: '120px'
   },
   {
     name: '作息表',
     urlName: 'schedule',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-xueqiyuzuoxi',
     width: '100px',
     height: '120px'
   },
   {
     name: '隐私相册',
     urlName: 'album',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-icon-yinsizhengce',
     width: '100px',
     height: '120px'
   },
   {
     name: '密码箱',
     urlName: 'cipherBox',
-    imgSrc: '/src/assets/categood.png',
+    imgSrc: '#icon-Icon-3',
     width: '100px',
     height: '120px'
   }
@@ -124,21 +129,41 @@ const appWidth = computed(() => {
   border-bottom: 1px solid #f0f0f0;
   /* 分隔线样式 */
   height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .app-icon {
   width: 90px;
-  /* 自定义图标宽度 */
   height: 90px;
-  /* 自定义图标高度 */
   margin-top: 15px;
-  /* 图标和上边框间距 */
   margin-bottom: 10px;
-  /* 图标与文字间距 */
+  border-radius: 50%;
+  background-color: pink;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+.icon {
+  font-size: 60px;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 .app-name {
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
+  margin-bottom: 10px;
 }
 </style>

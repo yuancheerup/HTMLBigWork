@@ -14,7 +14,7 @@
       >
     </div>
 
-    <!-- 第二部分：统计数据，我的订单，我的消息，桌面组件 -->
+    <!-- 第二部分 我的消息，桌面组件，收藏，高级功能 -->
     <div class="item-box">
       <van-cell-group class="user-info-section">
         <van-row class="function-row">
@@ -26,7 +26,9 @@
           </van-col>
           <van-col span="6">
             <div class="function-item">
-              <div class="icon-placeholder"><van-icon name="apps-o" /></div>
+              <div class="icon-placeholder">
+                <span class="iconfont icon-qianbi"></span>
+              </div>
               <div class="text">高级功能</div>
             </div>
           </van-col>
@@ -38,7 +40,9 @@
           </van-col>
           <van-col span="6">
             <div class="function-item">
-              <div class="icon-placeholder"><van-icon name="chat-o" /></div>
+              <div class="icon-placeholder">
+                <span class="iconfont icon-zujian"></span>
+              </div>
               <div class="text">桌面小组件</div>
             </div>
           </van-col>
@@ -214,6 +218,13 @@ function toLogin() {
   justify-content: center;
   background-color: #fff;
   /* 确保图标在背景色上可见 */
+
+  .iconfont {
+    font-size: 24px;
+  }
+  .icon-qianbi {
+    font-size: 28px;
+  }
 }
 
 .text {
