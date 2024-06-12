@@ -13,7 +13,7 @@ const password = ref('')
 const passwordType = ref('password') // 控制密码框的类型
 
 // 校验函数返回 true 表示校验通过，false 表示不通过
-const usernameValidator = (val) => /^[a-zA-Z][a-zA-Z0-9]{5,}$/.test(val)
+const usernameValidator = (val) => /^[a-zA-Z][a-zA-Z0-9]{4,}$/.test(val)
 const passwordValidator = (val) =>
   /^[a-zA-Z0-9!@#$%^&*()_+\\[\]{};':"\\|,.<>/?`~\\-]{8,}$/.test(val)
 
@@ -62,7 +62,7 @@ const togglePasswordVisibility = () => {
             :rules="[
               {
                 validator: usernameValidator,
-                message: '用户名应不少于6个字符，以字母开头',
+                message: '用户名应不少于5个字符，以字母开头',
                 trigger: 'onBlur'
               }
             ]"
@@ -78,7 +78,7 @@ const togglePasswordVisibility = () => {
             :rules="[
               {
                 validator: passwordValidator,
-                message: '不少于8个字符, 只包含数字、大小写字母和特殊符号',
+                message: '不少于8个字符, 只包含数字、字母和特殊符号',
                 trigger: 'onBlur'
               }
             ]"

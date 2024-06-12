@@ -26,8 +26,8 @@ const getCityId = async (longitude, latitude) => {
     ) {
       const location = response.data.location[0]
       console.log('location:' + longitude + latitude)
-      cityName.value = location.name // 获取城市名称
-      districtName.value = location.adm2 // 获取行政区名称（县或区）
+      cityName.value = location.name // 获取行政区名称（县或区）
+      districtName.value = location.adm2 // 获取城市名称
       return location.id
     } else {
       throw new Error('City not found')
@@ -122,7 +122,7 @@ function formatTime(fxTime) {
             {{ currentWeather.tempMin }}/{{ currentWeather.tempMax }}°
           </p>
           <!-- <p class="city">当前地区</p> -->
-          <p class="city">{{ cityName }}市, {{ districtName }}</p>
+          <p class="city">{{ districtName }}市</p>
           <!-- 显示具体城市和行政区名称 -->
           <p class="weather-text">{{ currentWeather.text }}</p>
         </div>
