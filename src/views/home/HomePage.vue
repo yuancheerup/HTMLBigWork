@@ -3,6 +3,13 @@ import { ref } from 'vue'
 import TopLayout from '../layout/TopLayout.vue'
 import FooterLayout from '../layout/FooterLayout.vue'
 
+const images = ref([
+  { src: 'src/assets/img/春.webp' },
+  { src: 'src/assets/img/夏.webp' },
+  { src: 'src/assets/img/秋.webp' },
+  { src: 'src/assets/img/冬.webp' }
+])
+
 const isLoading = ref(false)
 const onRefresh = () => {
   setTimeout(() => {
@@ -54,11 +61,17 @@ const list = ref([
   >
     <TopLayout />
     <!-- 轮播图 -->
+    <!--    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">-->
+    <!--      <van-swipe-item>1</van-swipe-item>-->
+    <!--      <van-swipe-item>2</van-swipe-item>-->
+    <!--      <van-swipe-item>3</van-swipe-item>-->
+    <!--      <van-swipe-item>4</van-swipe-item>-->
+    <!--    </van-swipe>-->
+
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+      <van-swipe-item v-for="(image, index) in images" :key="index">
+        <van-image :src="image.src" fit="cover" class="swipe-image" />
+      </van-swipe-item>
     </van-swipe>
 
     <!-- 宫格 -->
@@ -140,6 +153,7 @@ const list = ref([
 } */
 
 .my-swipe .van-swipe-item {
+  height: 200px;
   color: #fff;
   font-size: 20px;
   line-height: 150px;
@@ -165,6 +179,7 @@ const list = ref([
 
 .lists {
   margin-bottom: 60px;
+
   .list {
     margin-top: 25px;
 
@@ -193,6 +208,7 @@ const list = ref([
       .content-col {
         margin: 10px 12px;
       }
+
       .content-text {
         text-align: center;
       }
@@ -203,6 +219,7 @@ const list = ref([
       line-height: 1.5;
     }
   }
+
   .footer-word {
     font-size: 14px;
     color: #999;

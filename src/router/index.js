@@ -28,6 +28,7 @@ import ArticlePage from '@/views/home/ArticlePage.vue'
 import PlayVideo from '@/views/home/components/PlayVedio.vue'
 import AlbumPage from '@/views/applies/AlbumPage.vue'
 import CipherBoxPage from '@/views/applies/CipherBoxPage.vue'
+import SpringPage from '@/views/home/components/SpringPage.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -54,6 +55,13 @@ const router = createRouter({
     {
       path: '/life',
       component: LifeSkill,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/spring',
+      component: SpringPage,
       meta: {
         requiresAuth: true
       }
