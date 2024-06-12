@@ -9,3 +9,4 @@ export default pinia // 导出pinia实例
 export * from './moudles/user' // 导出user模块的store
 export * from './moudles/account'
 export * from './moudles/memory'
+export * from './moudles/schedule'

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onBeforeUnmount, onMounted } from 'vue'
+import { ref, onBeforeUnmount, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { showSuccessToast, showFailToast } from 'vant'
 import { useMemoryStore } from '@/stores'
@@ -86,6 +86,60 @@ const onDateConfirm = () => {
   showDatePicker.value = false
 }
 
+// 修改弹框
+const editFlag = ref(false)
+
+const holidayEditShow = (holiday) => {
+  holidayName.value = holiday.name
+  holidayDate.value = holiday.date
+  repeat.value = holiday.repeat
+  showDialog.value = true
+  memoryStore.editId = holiday.id
+  editFlag.value = true
+}
+
+// 修改
+const onHolidayEdit = () => {
+  if (!holidayName.value || !holidayDate.value) {
+    showFailToast('节日和日期不能不空')
+    return
+  }
+
+  const days = calculateDays(holidayDate.value)
+  memoryStore.updateHoliday({
+    id: memoryStore.editId,
+    holidayName: holidayName.value,
+    holidayDate: holidayDate.value,
+    repeat: repeat.value,
+    day: days
+  })
+  editFlag.value = false
+  showDialog.value = false
+  showSuccessToast('修改成功')
+}
+
+// 删除
+const onHolidayDelete = () => {
+  memoryStore.deleteHoliday(memoryStore.editId)
+  editFlag.value = false
+  showDialog.value = false
+  showSuccessToast('删除成功')
+}
+
+// 弹框关闭后
+const onCloseShowBottom = () => {
+  showDialog.value = false
+  holidayName.value = ''
+  holidayDate.value = ''
+  repeat.value = false
+  editFlag.value = false
+}
+
+// 排序
+const sortedHolidays = computed(() => {
+  return memoryStore.holidays.slice().sort((a, b) => a.day - b.day)
+})
+
 // 定时器更新天数
 const updateDaysLeft = () => {
   memoryStore.holidays.forEach((holiday) => {
@@ -120,9 +174,10 @@ onBeforeUnmount(() => {
     </div>
 
     <div
-      v-for="holiday in memoryStore.holidays"
+      v-for="holiday in sortedHolidays"
       :key="holiday.name"
       class="holiday"
+      @click="holidayEditShow(holiday)"
     >
       <div class="day-left">
         <div class="name">{{ holiday.name }}</div>
@@ -145,35 +200,45 @@ onBeforeUnmount(() => {
         --van-floating-bubble-background: #b0e0e6;
       "
     />
+
     <van-popup
       v-model:show="showDialog"
       position="bottom"
       :style="{ height: '60%' }"
+      @closed="onCloseShowBottom"
     >
-      <van-field
-        v-model="holidayName"
-        label="节日名称"
-        placeholder="请输入节日名称"
-        required
-      />
-      <van-field
-        v-model="holidayDate"
-        label="选择日期"
-        placeholder="点击选择日期"
-        required
-        is-link
-        @click="showInputDialog"
-      />
+      <van-cell-group inset>
+        <van-field
+          v-model="holidayName"
+          label="节日名称"
+          placeholder="请输入节日名称"
+          required
+          style="margin: 16px 0 5px 0"
+        />
+        <van-field
+          v-model="holidayDate"
+          label="选择日期"
+          placeholder="点击选择日期"
+          required
+          is-link
+          @click="showInputDialog"
+          style="margin-bottom: 5px"
+        />
 
-      <van-cell center title="是否重复">
-        <template #right-icon>
-          <van-switch v-model="repeat" title="是否重复" />
-        </template>
-      </van-cell>
+        <van-cell center title="是否重复" style="margin-bottom: 16px">
+          <template #right-icon>
+            <van-switch v-model="repeat" title="是否重复" />
+          </template>
+        </van-cell>
 
-      <div style="margin: 16px">
-        <van-button type="primary" block @click="addHoliday">添加</van-button>
-      </div>
+        <div style="margin: 16px" v-if="!editFlag">
+          <van-button type="primary" block @click="addHoliday">添加</van-button>
+        </div>
+        <div class="button-edit" v-else>
+          <van-button type="primary" @click="onHolidayEdit">修改</van-button>
+          <van-button type="danger" @click="onHolidayDelete">删除</van-button>
+        </div>
+      </van-cell-group>
     </van-popup>
 
     <van-popup v-model:show="showDatePicker" position="bottom">
@@ -243,6 +308,11 @@ onBeforeUnmount(() => {
         padding: 0 5px;
       }
     }
+  }
+
+  .button-edit {
+    display: flex;
+    justify-content: space-around;
   }
 }
 </style>
