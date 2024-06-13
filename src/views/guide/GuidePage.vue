@@ -15,28 +15,47 @@ onMounted(() => {
 
 <template>
   <div class="guide-page">
-    <van-image
-      src="/src/assets/background.png"
-      width="100%"
-      height="100vh"
-      fit="cover"
-    />
+    <div class="guide-page-header">
+      <span class="iconfont icon-a-136-gongjuxiangshuangse">
+      </span>
+      <span class="text">
+        生活百宝箱
+      </span>
+    </div>
     <van-loading size="24px" class="loading-spinner" />
   </div>
 </template>
 
 <style scoped>
 .guide-page {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #ffffff;
+  background:  linear-gradient(#409eff 0%, #79bbff 100%); ;
 }
 
+.guide-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.iconfont {
+  font-size: 100px;
+}
+
+.text {
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 0.6rem;
+  font-family: "楷体";
+}
 .loading-spinner {
   position: absolute;
   bottom: 20px;
+  color: #fff;
 }
 </style>

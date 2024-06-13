@@ -8,10 +8,9 @@
     <!-- 轮播图 -->
     <div class="swipe-container">
       <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item>1</van-swipe-item>
-        <van-swipe-item>2</van-swipe-item>
-        <van-swipe-item>3</van-swipe-item>
-        <van-swipe-item>4</van-swipe-item>
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+          <van-image :src="image.src" fit="cover" class="swipe-image" />
+        </van-swipe-item>
       </van-swipe>
     </div>
     <div class="life-skill-page">
@@ -40,37 +39,43 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
+const images = ref([
+  { src: 'src/assets/lifeSkill/生活小妙招1.png' },
+  { src: 'src/assets/lifeSkill/生活小妙招2.jpg' },
+  { src: 'src/assets/lifeSkill/生活小妙招3.jpg' }
+])
+
 // 视频列表
 const videos = ref([
   {
-    title: '震惊，洋葱居然有这么多用处哇哇哇！',
-    thumbnail: 'src/assets/banner2.jpg', // 替换为你的视频缩略图URL
-    src: 'src/assets/video/1.webm' // 替换为你的视频URL
+    title: '生活小妙招合集',
+    thumbnail: 'src/assets/lifeSkill/小妙招.webp', // 替换为你的视频缩略图URL
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4' // 替换为你的视频URL
   },
   {
-    title: '震惊，大蒜居然有这么多用处！',
-    thumbnail: 'src/assets/banner2.jpg',
-    src: 'src/assets/video/1.webm'
+    title: '锅这么洗，大家都说你厉害。',
+    thumbnail: 'src/assets/lifeSkill/洗锅.webp',
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4'
   },
   {
-    title: 'Video 3',
-    thumbnail: 'src/assets/banner2.jpg',
-    src: 'src/assets/video/1.webm'
+    title: '容易走神？试试番茄学习法',
+    thumbnail: 'src/assets/lifeSkill/番茄学习法.webp',
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4'
   },
   {
-    title: 'Video 4',
-    thumbnail: 'src/assets/banner2.jpg',
-    src: 'src/assets/video/1.webm'
+    title: '蛋黄更营养，蛋清更健康？',
+    thumbnail: 'src/assets/lifeSkill/蛋清.webp',
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4'
   },
   {
-    title: 'Video 5',
-    thumbnail: 'src/assets/banner2.jpg',
-    src: 'src/assets/video/1.webm'
+    title: '绝密！购物省钱大妙招，看完立马变富有',
+    thumbnail: 'src/assets/lifeSkill/购物.webp',
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4'
   },
   {
-    title: 'Video 6',
-    thumbnail: 'src/assets/banner2.jpg',
-    src: 'src/assets/video/1.webm'
+    title: '挂面最好吃的19种做法，学会都可以开面馆了',
+    thumbnail: 'src/assets/lifeSkill/面.webp',
+    src: 'src/assets/lifeSkill/1-生活小妙招合集.mp4'
   }
 ])
 
@@ -94,12 +99,16 @@ const playVideo = (video) => {
   margin: 16px 0;
 }
 
-.my-swipe {
-  color: #fff;
+.swipe-image {
+  width: 100%;
+  height: 100%;
+}
+
+.my-swipe .van-swipe-item {
+  height: 200px;
   font-size: 20px;
   line-height: 150px;
   text-align: center;
-  background-color: #39a9ed;
 }
 
 .life-skill-page {

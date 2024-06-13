@@ -1,5 +1,5 @@
 <template>
-  <van-nav-bar title="四季养生" left-text="返回" @click-left="$router.back()" />
+  <van-nav-bar title="春季养生" left-text="返回" @click-left="$router.back()" />
   <van-swipe :autoplay="0" class="swipe">
     <van-swipe-item v-for="item in items" :key="item.id" class="swipe-item">
       <div class="content">

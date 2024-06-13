@@ -1,10 +1,11 @@
 <template>
+  <van-nav-bar
+    title="设置目标饮水量"
+    left-text="返回"
+    @click-left="goBack()"
+  />
   <div class="settings-page">
-    <van-nav-bar
-      title="设置目标饮水量"
-      left-text="返回"
-      @click-left="$router.back()"
-    />
+
 
     <div class="target-info">
       <h3>您当前的每日喝水目标为 {{ target }} ml</h3>
@@ -32,6 +33,10 @@ import SlideRuler from 'slide-ruler'
 import { showSuccessToast } from 'vant'
 
 const slideRulerContainer = ref(null) // 使用 ref 创建响应式引用
+
+const goBack = () => {
+  router.push('/apply/drink')
+}
 
 // 初始化 SlideRuler 的函数
 const initSlideRuler = () => {
