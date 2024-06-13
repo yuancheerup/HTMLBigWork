@@ -38,9 +38,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 // 获取路由参数
 const route = useRoute()
