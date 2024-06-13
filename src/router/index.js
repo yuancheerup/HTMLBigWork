@@ -23,6 +23,8 @@ import ModifyPasswordPage from '@/views/login/ModifyPasswordPage.vue'
 import TopicPage from '@/views/topic/TopicPage.vue'
 import UserPage from '@/views/user/UserPage.vue'
 import SettingPage from '@/views/user/SettingPage.vue'
+import MyMessage from '@/views/user/MyMessage.vue'
+import Service from '@/views/user/Service.vue'
 import PostComments from '@/views/circle/PostComments.vue'
 import ArticlePage from '@/views/home/ArticlePage.vue'
 import PlayVideo from '@/views/home/components/PlayVedio.vue'
@@ -232,6 +234,20 @@ const router = createRouter({
     {
       path: '/user/setting',
       component: SettingPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/user/message',
+      component: MyMessage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/user/service',
+      component: Service,
       meta: {
         requiresAuth: true
       }

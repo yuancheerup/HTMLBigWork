@@ -9,7 +9,7 @@
         <img :src="avatarPath" alt="用户头像" />
         <div class="username">{{ username }}</div>
       </div>
-      <div class="customer-service">
+      <div class="customer-service" @click="router.push('/user/service')">
         <van-icon
           name="service-o"
           style="font-size: 25px; font-weight: bolder"
@@ -23,7 +23,7 @@
       <van-cell-group class="user-info-section">
         <van-row class="function-row">
           <van-col span="6">
-            <div class="function-item">
+            <div class="function-item" @click="toMessage">
               <div class="icon-placeholder"><van-icon name="chat-o" /></div>
               <div class="text">我的消息</div>
             </div>
@@ -132,6 +132,12 @@ function toLogin() {
     })
   }
 }
+
+const toMessage = () => {
+  router.push({
+    path: '/user/message'
+  })
+}
 </script>
 
 <style scoped>
@@ -219,7 +225,7 @@ function toLogin() {
   font-size: 30px;
   border: 1px solid #f7f7f7;
   border-radius: 50%;
-  box-shadow: 0 0 4px #f7f7f7;
+  /* box-shadow: 0 0 4px #f7f7f7; */
   width: 50px;
   height: 50px;
   margin: 0 auto 10px;
