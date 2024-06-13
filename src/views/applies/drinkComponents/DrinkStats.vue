@@ -1,4 +1,5 @@
 <template>
+  <van-nav-bar title="统计" left-text="返回" @click-left="$router.back()" />
   <div
     ref="myChart"
     id="myChart"

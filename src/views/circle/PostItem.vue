@@ -5,7 +5,9 @@
       <span class="user-name">{{ post.username }}</span>
     </div>
     <h3 class="post-title">{{ post.title }}</h3>
-    <p class="post-content">{{ post.content }}</p>
+    <div class="post-content">
+      <p v-for="(paragraph, index) in formattedContent" :key="index" class="post-paragraph">{{ paragraph }}</p>
+    </div>
     <div v-if="post.images && post.images.length" class="post-images">
       <div
         v-for="(image, index) in post.images"
@@ -57,6 +59,8 @@ const handleAction = (action) => {
   }
   console.log(`点击了${action}按钮`)
 }
+
+const formattedContent = ref(props.post.content.split('\n'))
 </script>
 
 <style scoped>
@@ -97,6 +101,11 @@ const handleAction = (action) => {
   margin: 10px 0;
   font-size: 14px;
   color: #666;
+}
+
+.post-paragraph {
+  text-indent: 2em; /* 首段空两个字 */
+  margin: 0 0 10px 0;
 }
 
 .post-images {

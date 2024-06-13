@@ -1,6 +1,5 @@
 <template>
   <div class="post-page">
-    <!-- 部分一：顶部导航栏 -->
     <van-nav-bar
       title="发帖"
       left-text="返回"
@@ -8,8 +7,13 @@
       right-text="发表"
       @click-right="publishPost"
     />
-
-    <!-- 部分二：文字输入框 -->
+    <van-field
+      v-model="postTitle"
+      clearable
+      label="标题"
+      placeholder="请输入标题"
+      :background-color="backgroundColor"
+    />
     <van-field
       v-model="postContent"
       rows="6"
@@ -18,16 +22,14 @@
       placeholder="请输入内容"
       :background-color="backgroundColor"
     />
-
-    <!-- 部分三：上传图片 -->
     <van-uploader
       v-model="fileList"
       preview-size="100px"
       class="upload-btn"
       multiple
+      :after-read="afterRead"
+      :max-count="9"
     />
-
-    <!-- 部分四：功能选项 -->
     <van-cell-group>
       <van-cell
         v-for="(option, index) in options"
@@ -48,14 +50,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import 'vant/lib/nav-bar/style'
-import 'vant/lib/field/style'
-import 'vant/lib/uploader/style'
-import 'vant/lib/cell/style'
-import 'vant/lib/cell-group/style'
-import 'vant/lib/icon/style'
+import { usePostsStore } from '@/stores/posts.js'
+import { showFailToast } from 'vant'
+import { useUserStore } from '@/stores/index.js'
 
+const userStore = useUserStore()
 const backgroundColor = ref('#ffffff')
+const postTitle = ref('')
 const postContent = ref('')
 const options = ref([
   { title: '所在位置', value: '', icon: 'location-o' },
@@ -64,19 +65,48 @@ const options = ref([
 ])
 
 const router = useRouter()
+const postsStore = usePostsStore()
+const fileList = ref([])
 
 const goBack = () => {
   router.go(-1)
 }
 
-const fileList = ref([])
-
 const publishPost = () => {
+  if (postContent.value.trim() === '') {
+    showFailToast("请填写内容")
+    return
+  }
+  const newPost = {
+    id: Date.now(),
+    username: userStore.username,
+    avatar: 'src/assets/circle/ikun5.jpg',
+    title: postTitle.value || '新发布的帖子', // 使用用户输入的标题，如果为空则使用默认标题
+    content: postContent.value,
+    images: fileList.value.map(file => file.content),
+    commentBadge: 0,
+    comments: []
+  }
+  postsStore.addPost(newPost)
+  fileList.value = [] // 清空文件列表
   router.push({ path: '/circle' })
 }
 
 const handleOptionClick = (index) => {
   console.log('点击功能选项', index)
+}
+
+const afterRead = (file) => {
+  if (fileList.value.length >= 9) {
+    showFailToast("最多只能上传9张图片")
+    return
+  }
+  // 判断当前选择的文件是否已存在于fileList中
+  if (!fileList.value.find(item => item.content === file.content)) {
+    fileList.value.push({
+      content: file.content
+    })
+  }
 }
 </script>
 
@@ -94,9 +124,8 @@ const handleOptionClick = (index) => {
   left: 20px;
 }
 
-/* 新增的样式 */
 .option-icon {
-  margin-right: 10px; /* 调整图标与文字之间的间距 */
+  margin-right: 10px;
 }
 
 .van-cell {

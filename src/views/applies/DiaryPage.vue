@@ -35,6 +35,9 @@
           </div>
         </div>
       </div>
+      <div v-else>
+        暂无日记，点击下方按钮新增。
+      </div>
     </div>
     <van-floating-bubble
       axis="xy"
@@ -63,7 +66,26 @@ const cancel = () => {
 }
 
 // 模拟已保存的日记数据
-const savedDiaries = ref([])
+const savedDiaries = ref([
+  {
+    id: 1,
+    date: new Date('2023-06-12'),
+    content: '今天的天气很好，我去公园散步了。',
+    isExpanded: false
+  },
+  {
+    id: 2,
+    date: new Date('2023-06-11'),
+    content: '今天在家看了一部电影，感觉很棒。',
+    isExpanded: false
+  },
+  {
+    id: 3,
+    date: new Date('2023-06-10'),
+    content: '今天参加了一场会议，收获颇丰。',
+    isExpanded: false
+  }
+])
 
 const loadDiaries = () => {
   const diaries = localStorage.getItem('diaries')
@@ -84,37 +106,30 @@ const diaryContent = ref('')
 
 // 保存日记
 const saveDiary = () => {
-  // 获取当前时间作为日记的日期
   const currentDate = new Date()
 
-  // 创建新的日记对象
   const newDiary = {
-    id: savedDiaries.value.length + 1, // 生成新的唯一 ID
+    id: savedDiaries.value.length + 1,
     date: currentDate,
     content: diaryContent.value,
     isExpanded: false
   }
 
-  // 将新日记添加到已保存的日记列表中，并置顶
   savedDiaries.value.unshift(newDiary)
 
-  // 保存到 localStorage
   saveDiariesToLocalStorage()
 
-  // 清空编辑框
   diaryContent.value = ''
   showDiary.value = false
 }
 
-// 自定义日期格式化函数
 const formatDate = (date) => {
   const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, '0') // 月份需要补零
-  const day = String(date.getDate()).padStart(2, '0') // 日需要补零
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
   return `${year}-${month}-${day}`
 }
 
-// 获取日记的前几句话
 const getPreviewText = (text, limit = 20) => {
   if (text.length <= limit) {
     return text
@@ -122,12 +137,10 @@ const getPreviewText = (text, limit = 20) => {
   return text.slice(0, limit)
 }
 
-// 切换日记的显示状态
 const toggleDiary = (diary) => {
   diary.isExpanded = !diary.isExpanded
 }
 
-// 根据日期分组日记
 const groupedDiaries = computed(() => {
   return savedDiaries.value.reduce((groups, diary) => {
     const date = formatDate(diary.date)
@@ -139,7 +152,6 @@ const groupedDiaries = computed(() => {
   }, {})
 })
 
-// 切换某一组的所有日记显示状态
 const toggleAllDiaries = (date) => {
   const diaries = groupedDiaries.value[date]
   const allExpanded = diaries.every(diary => diary.isExpanded)
@@ -148,12 +160,10 @@ const toggleAllDiaries = (date) => {
   })
 }
 
-// 判断某一组的所有日记是否展开
 const areAllDiariesExpanded = (date) => {
   return groupedDiaries.value[date].every(diary => diary.isExpanded)
 }
 
-// 加载日记数据
 onMounted(() => {
   loadDiaries()
 })

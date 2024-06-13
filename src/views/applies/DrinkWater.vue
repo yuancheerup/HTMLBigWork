@@ -4,7 +4,7 @@
       title="喝水"
       left-text="返回"
       right-text="更多"
-      @click-left="$router.back()"
+      @click-left="goBack()"
       @click-right="showPopup = true"
     />
 
@@ -54,6 +54,10 @@ const drinkStore = useDrinkStore()
 const percentValue = computed(() => Math.round(percent.value))
 const customText = '还没开始喝水'
 const currentText = ref('开喝')
+
+const goBack = () => {
+  router.push('/apply')
+}
 
 // 计算今日喝水量占目标量的百分比
 const percent = computed(() => {

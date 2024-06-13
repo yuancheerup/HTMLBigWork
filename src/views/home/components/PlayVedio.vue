@@ -65,19 +65,19 @@ const title = ref(videoTitle)
 // 评论数据
 const comments = ref([
   {
-    username: '评论用户1',
-    avatar: 'https://via.placeholder.com/40',
-    content: '这是评论用户1的评论内容。'
+    username: '梅川苦茶子',
+    avatar: 'src/assets/circle/ikun5.jpg',
+    content: '666学废了。'
   },
   {
-    username: '评论用户2',
-    avatar: 'https://via.placeholder.com/40',
-    content: '这是评论用户2的评论内容。'
+    username: '虾虾',
+    avatar: 'src/assets/lifeSkill/虾子.jpg',
+    content: '不是，哥们，真的吗。'
   },
   {
-    username: '评论用户3',
-    avatar: 'https://via.placeholder.com/40',
-    content: '这是评论用户3的评论内容。'
+    username: 'ikun',
+    avatar: 'src/assets/circle/ikun7.jpg',
+    content: '好看爱看。'
   }
 ])
 </script>
