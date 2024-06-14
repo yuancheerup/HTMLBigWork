@@ -217,7 +217,7 @@ const cancelView = () => {
 }
 
 const checkPassword = () => {
-  const storedPassword = localStorage.getItem('photoGalleryPassword')
+  const storedPassword = localStorage.getItem('boxPassword')
   if (storedPassword) {
     showPasswordPrompt.value = true
   } else {
@@ -226,7 +226,7 @@ const checkPassword = () => {
 }
 
 const handlePasswordSubmit = () => {
-  const storedPassword = localStorage.getItem('photoGalleryPassword')
+  const storedPassword = localStorage.getItem('boxPassword')
   if (storedPassword === passwordInput.value) {
     showPasswordPrompt.value = false
     showSuccessToast('密码正确')
@@ -241,7 +241,7 @@ const handlePasswordSubmit = () => {
 
 const setPassword = () => {
   if (newPassword.value) {
-    localStorage.setItem('photoGalleryPassword', newPassword.value)
+    localStorage.setItem('boxPassword', newPassword.value)
     showSetPassword.value = false
     showSuccessToast('密码设置成功')
   } else {
