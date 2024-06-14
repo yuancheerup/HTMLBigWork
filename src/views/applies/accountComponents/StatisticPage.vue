@@ -49,16 +49,14 @@ const activeName = ref('month')
         color="#3eb575"
         background="#f7f7f7"
       >
-        <van-tab title="" name=""></van-tab>
+        <van-tab title="" name="" disabled></van-tab>
         <van-tab title="月" name="month">
           <StatisticMonth></StatisticMonth>
         </van-tab>
         <van-tab title="年" name="year">
           <StatisticYear></StatisticYear>
         </van-tab>
-        <!-- <van-tab title="总" name="sum">
-        </van-tab> -->
-        <van-tab title="" name=""></van-tab>
+        <van-tab title="" name="" disabled></van-tab>
       </van-tabs>
     </div>
   </div>

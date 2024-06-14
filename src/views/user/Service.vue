@@ -5,6 +5,7 @@
       title="客服"
       left-text="返回"
       left-arrow
+      class="fixed-nav-bar"
       @click-left="onBack"
     />
 
@@ -24,16 +25,30 @@
     </div>
 
     <!-- 输入栏 -->
-    <van-field
-      v-model="inputMessage"
-      placeholder="请输入消息..."
-      clearable
-      class="chat-input"
-      @keypress.enter="sendMessage"
-    />
-    <van-button type="primary" class="send-button" @click="sendMessage">
-      发送
-    </van-button>
+    <div class="fixed-input-bar">
+      <van-field
+        v-model="inputMessage"
+        placeholder="请输入消息..."
+        clearable
+        class="chat-input"
+        @keypress.enter="sendMessage"
+      >
+        <template #button>
+          <van-button
+            size="big"
+            type="primary"
+            class="send-button"
+            @click="sendMessage"
+          >
+            发送
+          </van-button>
+        </template>
+      </van-field>
+
+      <!-- <van-button type="primary" class="send-button" @click="sendMessage">
+        发送
+      </van-button> -->
+    </div>
   </div>
 </template>
 
@@ -96,16 +111,25 @@ const sendMessage = async () => {
 <style scoped>
 .customer-service-chat {
   background-color: #ffffff;
-  padding: 0 16px;
+  margin: 0 16px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+.fixed-nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .chat-window {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 10px;
+  margin-top: 50px; /* 确保聊天窗口在导航栏下方 */
+  margin-bottom: 70px; /* 确保聊天窗口在输入栏上方 */
   position: relative;
 }
 
@@ -133,13 +157,25 @@ const sendMessage = async () => {
   background-color: #e0e0e0;
 }
 
+.fixed-input-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
 .chat-input {
-  margin-bottom: 10px;
+  flex: 1;
+  margin-right: 10px;
 }
 
 .send-button {
-  width: 100%;
-  margin-bottom: 10px;
+  width: 80px;
 }
 
 .loading {

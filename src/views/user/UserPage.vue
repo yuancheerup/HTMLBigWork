@@ -120,9 +120,12 @@ const router = useRouter()
 const userStore = useUserStore()
 
 // 设置用户头像的路径、用户名和背景图片的路径
-const avatarPath = '/src/assets/avatar.png'
 const username = userStore.username || '未登录'
-const headerBgPath = '/src/assets/background1.jpg'
+const headerBgPath = '/src/assets/img/background1.jpg'
+const avatarPath =
+  username === '未登录'
+    ? '/src/assets/img/noLogin-avatar.png'
+    : '/src/assets/img/avatar.png'
 
 // 未登录时跳转到登录页面
 function toLogin() {

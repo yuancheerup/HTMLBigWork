@@ -21,6 +21,7 @@ export const useAccountStore = defineStore(
     const balance = computed(() => {
       return (totalIncome.value - totalExpend.value).toFixed(2)
     })
+
     // 添加
     const addBill = ({ type, money, date, icon, name }) => {
       bills.value.push({
@@ -31,6 +32,8 @@ export const useAccountStore = defineStore(
         name: name
       })
     }
+
+    // 删除
 
     return {
       totalExpend,

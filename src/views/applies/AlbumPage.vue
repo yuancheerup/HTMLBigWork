@@ -85,10 +85,10 @@ import { showImagePreview } from 'vant'
 
 // 假数据，用于演示
 const fakePhotos = [
-  { url: 'src/assets/banner1.jpg', date: '2024-06-11' },
-  { url: 'src/assets/banner2.jpg', date: '2024-06-10' },
-  { url: 'src/assets/banner3.jpg', date: '2024-06-09' },
-  { url: 'src/assets/banner3.jpg', date: '2024-06-08' }
+  { url: 'src/assets/img/tu1.jpg', date: '2024-06-11' },
+  { url: 'src/assets/img/tu2.jpg', date: '2024-06-10' },
+  { url: 'src/assets/img/tu3.jpg', date: '2024-06-09' },
+  { url: 'src/assets/img/tu4.jpg', date: '2024-06-08' }
 ]
 
 const photoStore = usePhotoStore()

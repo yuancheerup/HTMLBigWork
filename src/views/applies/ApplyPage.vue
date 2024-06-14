@@ -142,7 +142,7 @@ const appWidth = computed(() => {
   text-decoration: none;
   border-bottom: 1px solid #f0f0f0;
   /* 分隔线样式 */
-  height: 150px;
+  height: 154px;
 
   display: flex;
   flex-direction: column;

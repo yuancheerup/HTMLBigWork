@@ -256,14 +256,14 @@ const router = createRouter({
 })
 
 // 拦截未登录用户
-// router.beforeEach((to, from, next) => {
-//   const user = JSON.parse(localStorage.getItem('user'))
+router.beforeEach((to, from, next) => {
+  const user = JSON.parse(localStorage.getItem('user'))
 
-//   if (to.matched.some((record) => record.meta.requiresAuth) && !user) {
-//     next('/login')
-//   } else {
-//     next()
-//   }
-// })
+  if (to.matched.some((record) => record.meta.requiresAuth) && !user) {
+    next('/login')
+  } else {
+    next()
+  }
+})
 
 export default router

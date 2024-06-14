@@ -11,11 +11,6 @@ const onClickBack = () => {
   history.back()
 }
 
-// const showLeft = ref(false)
-// const showLeftPopup = () => {
-//   showLeft.value = true
-// }
-
 const showBottom = ref(false)
 const showBottomPopup = () => {
   showBottom.value = true
@@ -593,7 +588,10 @@ const groupedBills = computed(() => {
       align-items: center;
       padding: 10px 10px 0 10px;
       .icon-datu-erjicaidan {
-        font-size: 20px;
+        font-size: 24px;
+      }
+      .icon-tuichu {
+        font-size: 19px;
       }
     }
 

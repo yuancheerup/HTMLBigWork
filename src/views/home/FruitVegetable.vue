@@ -28,7 +28,7 @@ const fruits = ref({
     },
     {
       name: '橙子',
-      icon: '#icon-chengzi'
+      icon: '#icon-chengzi1'
     }
   ],
   D: [
